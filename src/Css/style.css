@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+.titulo-pagina {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Container flexível para os cards */
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Card individual */
+.card {
+    position: relative;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 260px;
+    padding: 18px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* ID no canto do card */
+.id-card {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 11px;
+    background-color: #eee;
+    padding: 2px 6px;
+    border-radius: 10px;
+    color: #555;
+}
+
+/* Nome/título principal do card */
+.nome-card {
+    font-size: 18px;
+    color: #4B1863;
+    margin-bottom: 2px;
+    text-transform: capitalize;
+}
+
+/* Informação secundária */
+.info-secundaria {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Informações gerais */
+.info-card {
+    font-size: 13px;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* Informações que podem conter textos longos */
+.quebra-texto {
+    word-break: break-all;
+}
+
+/* Seção isolada do card */
+.secao-card {
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid #eeeeee;
+}
+
+/* Informações menores */
+.info-pequena {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 4px;
+}
+
+/* Informações com capitalização */
+.capitalizado {
+    text-transform: capitalize;
+}
+
+.dark-mode{
+    background-color: #1e1e1e;
+    color: #fff;
+}
