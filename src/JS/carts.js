@@ -10,8 +10,19 @@ let resp = await fetch(url)
 let carts = await resp.json()
 
 console.log(carts)
- const body = document.querySelector('body')
- 
+const body = document.querySelector('body')
+
+//barra de navegação para facilitar transição entre páginas
+let barraNav = document.createElement('nav')
+barraNav.classList.add('navbar')
+barraNav.innerHTML = `
+    <a href="./carrinhos.html">Carrinhos</a>
+    <a href="./users.html">Usuários</a>
+    <a href="./products.html">Produtos</a>
+`
+body.appendChild(barraNav)
+
+//título da página
 let titulo = document.createElement('h1')
 titulo.textContent = 'Carrinhos de Compras'
 titulo.classList.add('titulo-pagina')
@@ -35,7 +46,7 @@ for (let i = 0; i < carts.length; i++) {
     for (let j = 0; j < carts[i].products.length; j++) {
 
         produtos += `
-            <p class="info-secundaria">
+            <p class="info-card">
                 Produto: ${carts[i].products[j].productId}
                 | Quantidade: ${carts[i].products[j].quantity}
             </p>
@@ -61,13 +72,13 @@ for (let i = 0; i < carts.length; i++) {
             Usuário: ${carts[i].userId}
         </p>
 
-        <p class="info-secundaria">
+        <p class="info-card">
             <strong>Data:</strong> ${data}
         </p>
 
         <div class="secao-card">
 
-            <h3>Produtos</h3>
+            <h4 style="color: var(--grayed-blue); margin-bottom: 5px;">Produtos</h4>
             ${produtos}
 
         </div>

@@ -11,6 +11,16 @@ console.log(users)
 
 const body = document.querySelector('body')
 
+//barra de navegação para facilitar transição entre páginas
+let barraNav = document.createElement('nav')
+barraNav.classList.add('navbar')
+barraNav.innerHTML = `
+    <a href="./carrinhos.html">Carrinhos</a>
+    <a href="./users.html">Usuários</a>
+    <a href="./products.html">Produtos</a>
+`
+body.appendChild(barraNav)
+
 //título da página
 let titulo = document.createElement('h1')
 titulo.textContent = 'Usuários'
@@ -23,7 +33,7 @@ container.classList.add('container-cards')
 
 for (let i = 0; i < users.length; i++) {
     let card = document.createElement('div')
-    card.classList.add('card-usuario')
+    card.classList.add('card')
     card.id = `card-${i + 1}`
 
     // Endereço do usuário
@@ -53,11 +63,11 @@ for (let i = 0; i < users.length; i++) {
         </p>
 
         <p class="info-card">
-            ${users[i].email}
+            Email: ${users[i].email}
         </p>
 
         <p class="info-card">
-            ${users[i].phone}
+            Telefone: ${users[i].phone}
         </p>
         
         <div class="secao-card">

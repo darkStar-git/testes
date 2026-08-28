@@ -70,4 +70,3 @@ for (let i = 0; i < users.length; i++) {
 body.appendChild(container)
 
 console.log("JS FUNCIONOU")
-

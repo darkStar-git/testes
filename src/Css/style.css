@@ -1,3 +1,34 @@
+:root{
+    --ghost: #F6F7FF;
+    --persian: #26187D;
+    
+    --charcoal: #21283A;
+    --peach: #FBA580;
+
+    --cyprus: #004741;
+    --sand: #F0EDE4;
+
+    --fake-plum: #4B1D3F;
+    --plum: #371931;
+    --milk: #FEF3E5;
+
+    --imperial: #FB3640;
+    --dark-imperial: #8a1924;
+    --night: #222222;
+
+    --navy: #1D1E33;
+    --orange: #F47117;
+
+    --indigo: #413A8E;
+    --rich-violet: #301F45;
+    --amethyst: #794A88;
+    --pastel-sapphire: #87A0D3;
+    --sapphire: #899EF4;
+    --grayed-blue: #AAB7D4;
+    --silvered-gray: #B8BCC8;
+    --vibrant-cyan: #8FC9D8;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,14 +37,33 @@
 }
 
 body {
-    background-color: #f4f4f9;
+    background-color: var(--navy);
+}
+
+.navbar {
+    width: 100%;
+    top: 0;
+    z-index: 10000;
+    background-color: var(--dark-imperial);
     padding: 20px;
+    gap: 20px;
+    color: var(--ghost);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--ghost);
+    font-weight: bold;
 }
 
 .titulo-pagina {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: var(--imperial);
 }
 
 /* Container flexível para os cards */
@@ -21,16 +71,16 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
-    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    max-width: 80dvw;
     margin: 0 auto;
 }
 
 /* Card individual */
 .card {
     position: relative;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
+    background-color: var(--charcoal);
     border-radius: 8px;
     width: 260px;
     padding: 18px;
@@ -43,16 +93,16 @@ body {
     top: 10px;
     right: 12px;
     font-size: 11px;
-    background-color: #eee;
+    background-color: var(--dark-imperial);
     padding: 2px 6px;
     border-radius: 10px;
-    color: #555;
+    color: var(--imperial);
 }
 
 /* Nome/título principal do card */
 .nome-card {
     font-size: 18px;
-    color: #4B1863;
+    color: var(--imperial);
     margin-bottom: 2px;
     text-transform: capitalize;
 }
@@ -60,14 +110,14 @@ body {
 /* Informação secundária */
 .info-secundaria {
     font-size: 13px;
-    color: #777;
+    color: var(--vibrant-cyan);
     margin-bottom: 10px;
 }
 
 /* Informações gerais */
 .info-card {
     font-size: 13px;
-    color: #444;
+    color: var(--silvered-gray);
     margin-bottom: 6px;
 }
 
@@ -80,7 +130,7 @@ body {
 .secao-card {
     margin-top: 12px;
     padding-top: 10px;
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid var(--dark-imperial);
 }
 
 /* Informações menores */
