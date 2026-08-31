@@ -19,7 +19,7 @@ let barraNav = document.createElement('nav')
 barraNav.classList.add('navbar')
 barraNav.innerHTML = `
     <a href="./carrinhos.html">Carrinhos</a>
-    <a href="./users.html">Usuários</a>
+    <a href="./index.html">Usuários</a>
     <a href="./products.html">Produtos</a>
 `
 body.appendChild(barraNav)
