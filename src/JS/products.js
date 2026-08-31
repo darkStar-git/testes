@@ -1,19 +1,32 @@
+import { criarModalProduto } from './modalProdutos.js';
+
 // Fonte de dados
-let url = 'https://fakestoreapi.com/users'
+let url = 'https://fakestoreapi.com/products'
 
 // Request
 let resp = await fetch(url)
 
 // Tratamento da resposta
-let users = await resp.json()
+let products = await resp.json()
 
-console.log(users)
-
+console.log(products)
 const body = document.querySelector('body')
+
+const abrirModal = criarModalProduto(body)
+
+//barra de navegação para facilitar transição entre páginas
+let barraNav = document.createElement('nav')
+barraNav.classList.add('navbar')
+barraNav.innerHTML = `
+    <a href="./carrinhos.html">Carrinhos</a>
+    <a href="./users.html">Usuários</a>
+    <a href="./products.html">Produtos</a>
+`
+body.appendChild(barraNav)
 
 //título da página
 let titulo = document.createElement('h1')
-titulo.textContent = 'Usuários'
+titulo.textContent = 'Carrinhos de Compras'
 titulo.classList.add('titulo-pagina')
 body.appendChild(titulo)
 
@@ -21,52 +34,73 @@ body.appendChild(titulo)
 let container = document.createElement('div')
 container.classList.add('container-cards')
 
-for (let i = 0; i < users.length; i++) {
-    let card = document.createElement('div')
-    card.classList.add('card-usuario')
-    card.id = `card-${i + 1}`
+// CRIAÇÃO DOS CARDS
 
-    // Endereço do usuário
-    let endereco = `
-        <p class="info-card">
-            ${users[i].address.street}, ${users[i].address.number}
-        </p>
-        <p class="info-card">
-           ${users[i].address.city} - CEP ${users[i].address.zipcode}
-        </p>
-        <p class="info-card">
-            Lat: ${users[i].address.geolocation.lat},
-            Long: ${users[i].address.geolocation.long}
-        </p>
-    `
+for (let i = 0; i < products.length; i++) {
+
+    const card = document.createElement('div')
+    card.classList.add(
+        'card',
+        'card-produto'
+    )
 
     card.innerHTML = `
-        <span class="id-card">
-            ${users[i].id}
-        </span>
-        <h2 class="nome-card">
-            ${users[i].name.firstname} ${users[i].name.lastname}
-        </h2>
-        
-        <p class="info-secundaria">
-            @${users[i].username}
-        </p>
 
-        <p class="info-card">
-            ${users[i].email}
-        </p>
+                <div class="imagem-produto">
 
-        <p class="info-card">
-            ${users[i].phone}
-        </p>
-        
-        <div class="secao-card">
-            ${endereco}
-        </div>
-    `
+                    <img
+                        src="${products[i].image}"
+                        alt="${products[i].title}"
+                    >
+
+                    <span class="id-card">
+                        ID: ${products[i].id}
+                    </span>
+
+                </div>
+
+
+                <div class="conteudo-produto">
+
+                    <p class="categoria-produto">
+                        ${products[i].category}
+                    </p>
+
+
+                    <h2 class="nome-card nome-produto">
+                        ${products[i].title}
+                    </h2>
+
+
+                    <p class="preco-produto">
+                        $${Number(products[i].price).toFixed(2)}
+                    </p>
+
+
+                    <div class="avaliacao-produto">
+
+                        <span>
+                            ★ ${products[i].rating.rate}
+                        </span>
+
+                        <span>
+                            ${products[i].rating.count} avaliações
+                        </span>
+
+                    </div>
+
+                </div>
+            `
+
+    card.addEventListener('click', () => {
+
+        abrirModal(products[i]);
+
+    });
 
     container.appendChild(card)
 }
-body.appendChild(container)
 
-console.log("JS FUNCIONOU")
+
+// Adiciona os cards na página
+body.appendChild(container)

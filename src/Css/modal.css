@@ -1,0 +1,198 @@
+/* ================================= */
+/* MODAL DO PRODUTO                  */
+/* ================================= */
+
+.modal-produto {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: rgba(0, 0, 0, 0.75);
+
+    padding: 20px;
+
+    z-index: 99999;
+
+    /* Estado inicial */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+/* Modal aberta */
+
+.modal-produto.ativo {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ================================= */
+/* CONTEÚDO DA MODAL                 */
+/* ================================= */
+
+.conteudo-modal {
+    position: relative;
+
+    width: min(900px, 90vw);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+
+    padding: 30px;
+
+    background-color: var(--charcoal);
+
+    border-radius: 12px;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+    /* Popup começa menor */
+    transform: scale(0.7);
+
+    transition: transform 0.25s ease;
+}
+
+
+/* Quando a modal estiver aberta */
+
+.modal-produto.ativo .conteudo-modal {
+    transform: scale(1);
+}
+
+
+/* ================================= */
+/* BOTÃO FECHAR                      */
+/* ================================= */
+
+.fechar-modal {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: var(--dark-imperial);
+    color: var(--ghost);
+
+    font-size: 25px;
+
+    cursor: pointer;
+
+    transition: transform 0.2s ease;
+}
+
+.fechar-modal:hover {
+    transform: scale(1.1);
+}
+
+
+/* ================================= */
+/* IMAGEM                            */
+/* ================================= */
+
+.imagem-modal {
+    width: 100%;
+    min-height: 350px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--ghost);
+
+    border-radius: 8px;
+}
+
+.modal-img {
+    width: 100%;
+    height: 350px;
+
+    object-fit: contain;
+
+    padding: 25px;
+}
+
+
+/* ================================= */
+/* INFORMAÇÕES                       */
+/* ================================= */
+
+.informacoes-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-categoria {
+    color: var(--vibrant-cyan);
+
+    font-size: 14px;
+
+    text-transform: capitalize;
+
+    margin-bottom: 10px;
+}
+
+.modal-titulo {
+    color: var(--imperial);
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    margin-bottom: 20px;
+}
+
+.modal-descricao {
+    color: var(--silvered-gray);
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+.modal-preco {
+    color: var(--peach);
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.modal-avaliacao {
+    display: flex;
+
+    gap: 20px;
+
+    font-size: 14px;
+
+    color: var(--silvered-gray);
+}
+
+.modal-nota {
+    color: var(--peach);
+
+    font-weight: bold;
+}
